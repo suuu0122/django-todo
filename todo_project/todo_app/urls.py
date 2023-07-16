@@ -4,7 +4,7 @@ from . import views
 
 
 
+app_name = "todo_app"
 urlpatterns = [
-    # todo:
-    # path('', views.index, name="index")
+    path('', views.TodoList.as_view(), name="list"),
 ]
