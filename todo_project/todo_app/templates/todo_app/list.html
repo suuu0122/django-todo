@@ -15,9 +15,9 @@
 		{% for post in todo_list %}
 		<div class="alert alert-success" role="alert">
 			<p>{{ post.title }}</p>
-			<a href="#" class="btn btn-info" tabindex="-1" role="button" aria-disabled="true">編集</a>
-			<a href="#" class="btn btn-success" tabindex="-1" role="button" aria-disabled="true">削除</a>
-			<a href="#" class="btn btn-primary" tabindex="-1" role="button" aria-disabled="true">詳細</a>
+			<a href="{% url 'todo_app:update' post.pk %}" class="btn btn-info" tabindex="-1" role="button" aria-disabled="true">編集</a>
+			<a href="{% url 'todo_app:delete' post.pk %}" class="btn btn-success" tabindex="-1" role="button" aria-disabled="true">削除</a>
+			<a href="{% url 'todo_app:detail' post.pk %}" class="btn btn-primary" tabindex="-1" role="button" aria-disabled="true">詳細</a>
 		</div>
 		{% endfor %}
 	</div>
