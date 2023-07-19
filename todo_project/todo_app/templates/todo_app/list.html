@@ -1,18 +1,25 @@
 {% extends "todo_app/base.html" %}
 
 {% block header %}
-list
+<div class="jumbotron jumbotron-fluid">
+	<div class="container">
+		<h1 class="display-4">Todo List</h1>
+		<p class="lead">Todo Listを作成して生産的な毎日を過ごしましょう!</p>
+	</div>
+</div>
 {% endblock header %}
 
 {% block content %}
 
-	{% for post in todo_list %}
-	<div class="alert alert-success" role="alert">
-		<ul>
-			<li>{{ post.title }}</li>
-			<li>{{ post.memo }}</li>
-		</ul>
+	<div class="container">
+		{% for post in todo_list %}
+		<div class="alert alert-success" role="alert">
+			<p>{{ post.title }}</p>
+			<a href="#" class="btn btn-info" tabindex="-1" role="button" aria-disabled="true">編集</a>
+			<a href="#" class="btn btn-success" tabindex="-1" role="button" aria-disabled="true">削除</a>
+			<a href="#" class="btn btn-primary" tabindex="-1" role="button" aria-disabled="true">詳細</a>
+		</div>
+		{% endfor %}
 	</div>
-	{% endfor %}
 
 {% endblock content %}
