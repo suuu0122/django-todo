@@ -12,9 +12,11 @@
 {% block content %}
 
 	<div class="container">
+		<a href="{% url 'todo_app:create' %}" class="btn btn-secondary mb-2" tabindex="-1" role="button" aria-disabled="true">新規作成</a>
 		{% for post in todo_list %}
-		<div class="alert alert-success" role="alert">
+		<div class="alert alert-{{ post.priority }}" role="alert">
 			<p>{{ post.title }}</p>
+			<p>{{ post.duedate | date:"o-n-j"}}</p>
 			<a href="{% url 'todo_app:update' post.pk %}" class="btn btn-info" tabindex="-1" role="button" aria-disabled="true">編集</a>
 			<a href="{% url 'todo_app:delete' post.pk %}" class="btn btn-success" tabindex="-1" role="button" aria-disabled="true">削除</a>
 			<a href="{% url 'todo_app:detail' post.pk %}" class="btn btn-primary" tabindex="-1" role="button" aria-disabled="true">詳細</a>
